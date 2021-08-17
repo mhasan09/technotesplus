@@ -15,19 +15,35 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-info" @click="handlePushToCreateNote">
+
+        <div class="buttons" v-if="($route.name === 'Register') || ($route.name === 'Login')">
+          <!-- <a class="button is-info" @click="handlePushToCreateNote">
             Inscribe
-          </a>
-<!--           <a class="button is-warning" @click="handlePushToShare">-->
-<!--            Share-->
-<!--          </a>-->
+          </a> -->
           <a class="button is-primary" @click="handlePushToRegister">
             <strong>Register</strong>
           </a>
           <a class="button is-light" @click="handlePushToLogin">
             Log in
           </a>
+          <!-- <a class="button is-danger" @click="handleLogout">
+            Log Out
+          </a> -->
+        </div>
+
+
+
+
+        <div class="buttons" v-else>
+          <a class="button is-info" @click="handlePushToCreateNote">
+            Inscribe
+          </a>
+          <!-- <a class="button is-primary" @click="handlePushToRegister">
+            <strong>Register</strong>
+          </a>
+          <a class="button is-light" @click="handlePushToLogin">
+            Log in
+          </a> -->
           <a class="button is-danger" @click="handleLogout">
             Log Out
           </a>

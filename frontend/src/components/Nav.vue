@@ -11,23 +11,39 @@
       <span aria-hidden="true"></span>
     </a>
   </div>
-  
+
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-info" @click="handlePushToCreateNote">
+
+        <div class="buttons" v-if="($route.name === 'Register') || ($route.name === 'Login')">
+          <!-- <a class="button is-info" @click="handlePushToCreateNote">
             Inscribe
-          </a>
-<!--           <a class="button is-warning" @click="handlePushToShare">-->
-<!--            Share-->
-<!--          </a>-->
+          </a> -->
           <a class="button is-primary" @click="handlePushToRegister">
             <strong>Register</strong>
           </a>
           <a class="button is-light" @click="handlePushToLogin">
             Log in
           </a>
+          <!-- <a class="button is-danger" @click="handleLogout">
+            Log Out
+          </a> -->
+        </div>
+
+
+
+
+        <div class="buttons" v-else>
+          <a class="button is-info" @click="handlePushToCreateNote">
+            Inscribe
+          </a>
+          <!-- <a class="button is-primary" @click="handlePushToRegister">
+            <strong>Register</strong>
+          </a>
+          <a class="button is-light" @click="handlePushToLogin">
+            Log in
+          </a> -->
           <a class="button is-danger" @click="handleLogout">
             Log Out
           </a>
@@ -36,7 +52,7 @@
     </div>
   </div>
 </nav>
-        
+
 </template>
 
 <script>
@@ -49,14 +65,14 @@ import axios from "axios";
 
 export default {
     name: 'Nav',
-    
+
     setup(props) {
         const route = useRoute();
         const state = reactive({
           selected: null,
           // user: []
         });
-        
+
 
       //   watch(() => route.name, () => {
       //   if(route.name === 'CreateNote' || route.name === 'Home') {
@@ -74,10 +90,10 @@ export default {
       //   return route_name
       // }
 
-     
-      
-      
-        
+
+
+
+
         const handlePushToHome = _ => router.push({ name: 'Home' });
         const handlePushToRegister = _ => router.push({ name: 'Register' });
         const handlePushToLogin = _ => router.push({ name: 'Login' });
@@ -129,7 +145,7 @@ export default {
     // onMounted(() => {
     //   getUser();
     // });
-      
+
 
         return {
             handlePushToRegister,
@@ -142,7 +158,7 @@ export default {
         }
     }
 }
-    
+
 </script>
 
 <style>

@@ -32,8 +32,6 @@
         </div>
 
 
-
-
         <div class="buttons" v-else>
           <a class="button is-info" @click="handlePushToCreateNote">
             Inscribe

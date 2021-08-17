@@ -19,9 +19,9 @@
           <a class="button is-info" @click="handlePushToCreateNote">
             Inscribe
           </a>
-           <a class="button is-warning" @click="handlePushToShare">
-            Share
-          </a>
+<!--           <a class="button is-warning" @click="handlePushToShare">-->
+<!--            Share-->
+<!--          </a>-->
           <a class="button is-primary" @click="handlePushToRegister">
             <strong>Register</strong>
           </a>

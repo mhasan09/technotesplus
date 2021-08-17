@@ -1,0 +1,10 @@
+/backend/techNotesPlus/.idea
+/backend/techNotesPlus/.env
+
+/frontend/node_modules
+
+
+.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class

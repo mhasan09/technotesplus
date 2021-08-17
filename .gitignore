@@ -1,9 +1,6 @@
-/backend/techNotesPlus/.idea
-/backend/techNotesPlus/.env
-
-/frontend/node_modules/
-
-
+node_modules/
+.env
+.idea/
 .DS_Store
 __pycache__/
 *.py[cod]

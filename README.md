@@ -13,3 +13,7 @@ TechNotesPlus is a note taking app, which allows users to take notes, manage the
 9. Run ```npm install```
 10. Run ```npm run serve ``` 
 11. Viola you're all set, Now go to the registration page. Register by giving your username,email and password and then login.
+
+
+### Screenshot
+![Alt text](/frontend/assets/home.png?raw=true "Optional Title")

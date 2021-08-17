@@ -4,7 +4,7 @@ TechNotesPlus is a note taking app, which allows users to take notes, manage the
 
 1. I've seperated the project between two parts, Backend and Frontend.
 2. Clone the repo first by ```git clone https://github.com/mhasan09/technotesplus.git```
-3. Open the Backend folder first here's the directory /backend/techNotesPlus and open Terminal
+3. Open the Backend folder first here's the directory ```/backend/techNotesPlus``` and open Terminal
 4. Activate the virtualenv by  ```venv/Scripts/activate```
 5. Run ```pip install -r requirements.txt```
 6. Run ```python manage.py migrate```

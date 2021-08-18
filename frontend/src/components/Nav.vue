@@ -15,7 +15,6 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-end">
       <div class="navbar-item">
-
         <div class="buttons" v-if="($route.name === 'Register') || ($route.name === 'Login')">
           <!-- <a class="button is-info" @click="handlePushToCreateNote">
             Inscribe

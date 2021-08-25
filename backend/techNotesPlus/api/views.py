@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import authentication_classes, permission_classes
 from .serializers import *
 from decouple import config
+from django.http import JsonResponse
 
 '''
 get all API endpoints
@@ -206,11 +207,27 @@ def sign_out(request):
 This function is not applied on the frontend yet. I couldn't use Sendgrid due to their new account
 creating policy, it takes a lot of time to verification. Instead I use mailjet to get the job done.
 '''
+@api_view(["POST"])
 def email(request):
     from mailjet_rest import Client
     import os
     api_key = config('api_key')
     api_secret = config('api_secret')
+    userid =request.data['userid']
+    username = request.data['username']
+    email =request.data['email']
+    url = request.data['url']
+    note = request.data['note']
+    email_body = """
+    <h2>Hey $$username$$, check this note from TechNotesPlus</h2>
+    <br/>
+    <h1 style="white-space: pre-line;">$$note$$<h1>
+    
+    """
+    html_result_modified = email_body.replace("$$username$$", username)
+    html_result = html_result_modified.replace("$$note$$", note)
+    
+
     mailjet = Client(auth=(api_key, api_secret), version='v3.1')
     data = {
         'Messages': [
@@ -221,13 +238,13 @@ def email(request):
                 },
                 "To": [
                     {
-                        "Email": "shourav6699@gmail.com",
-                        "Name": "Mahabub"
+                        "Email": email,
+                        "Name": username
                     }
                 ],
                 "Subject": "Hey, Check this note",
-                "TextPart": "",
-                "HTMLPart": "<h3>Check this note out at <a href='https://techcare.co/'> TechNotesPlus</a>!</h3><br />",
+                "TextPart": "Hey"+username,
+                "HTMLPart": html_result,
                 "CustomID": "AppGettingStartedTest"
             }
         ]
@@ -235,8 +252,7 @@ def email(request):
     result = mailjet.send.create(data=data)
     print(result.status_code)
     print(result.json())
+    return JsonResponse({'success': True})
 
-
-
-
+    
 

@@ -34,7 +34,7 @@
             </div>
             <div class="field">
               <button class="button is-success" type="submit">
-                Login
+                Register
               </button>
             </div>
           </form>

@@ -13,12 +13,15 @@
       :note="note.CONTENT"
       @removeNote="handleRemoveNote"
     />
+
   </div>
+ 
 </template>
 
 <script>
 import { reactive, onMounted } from "vue";
 import axios from "axios";
+import {ref} from 'vue';
 import Note from "../components/Note.vue";
 import { backend } from "@/utils";
 import router from "@/router";
@@ -33,6 +36,7 @@ export default {
     const state = reactive({
       notes: [],
       user: [],
+
     });
 
     // We get all the notes for the user
@@ -124,9 +128,12 @@ export default {
       state.notes = state.notes.filter((note) => note.id !== childData.id);
     };
 
+
     return {
       state,
       handleRemoveNote,
+     
+      
     };
   },
 };

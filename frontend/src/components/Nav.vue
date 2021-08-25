@@ -5,14 +5,14 @@
         <strong class="logo">TechNotesPlus</strong>
     </a>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" @click="navbarToggle" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" :class="{ 'is-active': state.activator }" >
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': state.activator }">
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons" v-if="($route.name === 'Register') || ($route.name === 'Login')">
@@ -41,6 +41,7 @@
 </template>
 
 <script>
+
 import router from "@/router";
 import { useRoute } from 'vue-router';
 import { reactive, watch, onMounted } from 'vue';
@@ -54,6 +55,7 @@ export default {
     setup(props) {
         const route = useRoute();
         const state = reactive({
+          activator: false,
           selected: null,
         });
 
@@ -69,15 +71,24 @@ export default {
             router.push({ name: 'Login' });
         }
 
+        const navbarToggle = () => {
+          state.activator = !state.activator;
+          console.log(state.activator);
+          console.log('clicked');
+          // return state.activator
+        }
+
 
 
         return {
+            state,
             handlePushToRegister,
             handlePushToLogin,
             handleLogout,
             handlePushToHome,
             handlePushToCreateNote,
-            handlePushToShare
+            handlePushToShare,
+            navbarToggle
         }
     }
 }
@@ -87,6 +98,7 @@ export default {
 .logo{
   font-size: 33px;
 }
+
 </style>
 
 

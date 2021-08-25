@@ -311,33 +311,6 @@ export default {
       }catch(err){
         console.log(err)
       } 
-
-      // catch (err) {
-      //   if (err.status === 500) {
-      //     console.log("Check your internet connection!");
-      //   } else {
-      //     try {
-      //       const refresh = await axios.post(`${backend}/api/token/refresh/`, {
-      //         refresh: localStorage.refreshToken,
-      //       });
-      //       await localStorage.setItem("accessToken", refresh.data.access);
-      //       const refreshResponse = await axios.post(
-      //         `${backend}/api/email`,{ content: data },
-      //         {
-      //           headers: {
-      //             Authorization: `Bearer ${localStorage.accessToken}`,
-      //           },
-      //         }
-      //       );
-      //       if (refreshResponse.status === 200) {
-      //         console.log('Notification send')
-      //       }
-      //     } catch (err) {
-      //       localStorage.removeItem("accessToken");
-      //       localStorage.removeItem("refreshToken");
-      //     }
-      //   }
-      // }
     };
 
 
@@ -403,4 +376,5 @@ i {
     border: 1px solid #ffffff;
     
 }
+
 </style>

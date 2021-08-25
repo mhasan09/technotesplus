@@ -13,15 +13,13 @@
       :note="note.CONTENT"
       @removeNote="handleRemoveNote"
     />
-
   </div>
- 
 </template>
 
 <script>
 import { reactive, onMounted } from "vue";
 import axios from "axios";
-import {ref} from 'vue';
+import { ref } from "vue";
 import Note from "../components/Note.vue";
 import { backend } from "@/utils";
 import router from "@/router";
@@ -36,7 +34,6 @@ export default {
     const state = reactive({
       notes: [],
       user: [],
-
     });
 
     // We get all the notes for the user
@@ -128,12 +125,9 @@ export default {
       state.notes = state.notes.filter((note) => note.id !== childData.id);
     };
 
-
     return {
       state,
       handleRemoveNote,
-     
-      
     };
   },
 };
@@ -143,7 +137,26 @@ export default {
 .greetings {
   font-size: 23px;
 }
-.is-right{
+.is-right {
   margin-right: 5%;
+}
+@media screen and (device-width: 360px) and (device-height: 640px) and (orientation: portrait) {
+  .columns.is-mobile > .column.is-offset-one-quarter {
+    margin-left: 5%;
+  }
+  .columns.is-mobile > .column.is-half {
+    flex: none;
+    width: 90%;
+  }
+  i{
+    display: inline-block;
+  }
+  .actions{
+    margin-left: 54%;
+    margin-bottom: 20%;
+  }
+  .greetings {
+    margin-top: 5%;
+}
 }
 </style>
